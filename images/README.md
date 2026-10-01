@@ -1,7 +1,7 @@
 Add 5 cinematic JPG images here:
 
-scene1
-scene2
-scene3
-scene4
-scene5
+scene 1 
+scene 2 
+scene 3 
+scene 4 
+scene 5 
