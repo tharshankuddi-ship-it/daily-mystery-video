@@ -1,0 +1,30 @@
+
+name: Daily Mystery Video
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 9 * * *'
+
+jobs:
+  create-video:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Create video
+        run: python main.py
+
+      - name: Save video
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-mystery-video
+          path: output/daily_mystery.mp4
+          retention-days: 7
